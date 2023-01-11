@@ -135,6 +135,7 @@ module DiscourseTheme
       pp request
       pp url
       pp http.use_ssl?
+      pp @api_key
       http.request(request).tap do |response|
         pp response.body[0..4000]
         if response.code == '404' && never_404
