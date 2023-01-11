@@ -132,6 +132,8 @@ module DiscourseTheme
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = URI::HTTPS === uri
       add_headers(request)
+      pp request
+      pp url
       pp request.header
       pp http.use_ssl?
       http.request(request).tap do |response|
