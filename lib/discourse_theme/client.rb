@@ -133,8 +133,9 @@ module DiscourseTheme
       http.use_ssl = URI::HTTPS === uri
       add_headers(request)
       pp request
+      pp http.use_ssl
       http.request(request).tap do |response|
-        pp response.body.first(40)
+        pp response.body[0..400]
         if response.code == '404' && never_404
           raise DiscourseTheme::ThemeError.new "Error: Incorrect site URL, or API key does not have the correct privileges"
         elsif !['200', '201'].include?(response.code)
