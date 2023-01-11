@@ -132,8 +132,8 @@ module DiscourseTheme
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = URI::HTTPS === uri
       add_headers(request)
-      pp request
-      pp http.use_ssl
+      pp request.headers
+      pp http.use_ssl?
       http.request(request).tap do |response|
         pp response.body[0..400]
         if response.code == '404' && never_404
