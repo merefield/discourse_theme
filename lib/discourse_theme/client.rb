@@ -136,7 +136,7 @@ module DiscourseTheme
       pp url
       pp http.use_ssl?
       http.request(request).tap do |response|
-        pp response.body[0..1000]
+        pp response.body[0..4000]
         if response.code == '404' && never_404
           raise DiscourseTheme::ThemeError.new "Error: Incorrect site URL, or API key does not have the correct privileges"
         elsif !['200', '201'].include?(response.code)
