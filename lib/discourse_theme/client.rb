@@ -13,7 +13,7 @@ module DiscourseTheme
       raise "Missing site to synchronize with!" if !@url
       raise "Missing api key!" if !@api_key
 
-      @is_theme_creator = !!(THEME_CREATOR_REGEX =~ @url)
+      @is_theme_creator = false #!!(THEME_CREATOR_REGEX =~ @url)
 
       if !self.class.has_needed_version?(discourse_version, "2.3.0.beta1")
         UI.info "discourse_theme is designed for Discourse 2.3.0.beta1 or above"
