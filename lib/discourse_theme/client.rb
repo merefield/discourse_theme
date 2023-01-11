@@ -134,7 +134,6 @@ module DiscourseTheme
       add_headers(request)
       pp request
       pp url
-      pp request.header
       pp http.use_ssl?
       http.request(request).tap do |response|
         pp response.body[0..400]
